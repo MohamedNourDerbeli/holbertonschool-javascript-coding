@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/node
 
 // Import required modules
 const fs = require('fs');
@@ -12,10 +12,9 @@ request(url, (error, response, body) => {
     console.error('Error fetching the webpage:', error);
     return;
   }
-
   fs.writeFile(filePath, body, 'utf8', (writeErr) => {
     if (writeErr) {
       console.error('Error writing to file:', writeErr);
-    }
+    } 
   });
 });
