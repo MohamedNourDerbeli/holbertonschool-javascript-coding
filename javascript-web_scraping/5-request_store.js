@@ -1,20 +1,21 @@
-#!/usr/bin/node
+#!/usr/bin/env node
 
 // Import required modules
-const fs = require('fs')
-const request = require('request')
+const fs = require('fs');
+const request = require('request');
 
-const url = process.argv[2]
-const filePath = process.argv[3]
+const url = process.argv[2];
+const filePath = process.argv[3];
 
 request(url, (error, response, body) => {
   if (error) {
-    console.error('Error fetching the webpage:', error)
-    return
+    console.error('Error fetching the webpage:', error);
+    return;
   }
-  fs.writeFile(filePath, body, 'utf8', writeErr => {
+
+  fs.writeFile(filePath, body, 'utf8', (writeErr) => {
     if (writeErr) {
-      console.error('Error writing to file:', writeErr)
+      console.error('Error writing to file:', writeErr);
     }
-  })
-})
+  });
+});
