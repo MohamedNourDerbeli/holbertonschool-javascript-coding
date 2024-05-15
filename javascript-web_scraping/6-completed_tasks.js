@@ -10,7 +10,6 @@ request(apiUrl, (error, response, body) => {
     return;
   }
 
-
   const todos = JSON.parse(body);
 
   const completedTasksByUser = {};
